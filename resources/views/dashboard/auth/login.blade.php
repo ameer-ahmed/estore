@@ -42,13 +42,16 @@
                             <div class="card-body p-4">
                                 <div class="p-2">
                                     <h5 class="mb-5 text-center">Sign in to continue to Xoric.</h5>
+                                    @if(session()->has('auth_error'))
+                                        <div class="alert alert-danger mb-0" role="alert">{{ session()->get('auth_error') }}</div>
+                                    @endif
                                     <form class="form-horizontal" action="{{ route('admin-login') }}" method="post" novalidate>
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group form-group-custom mb-4">
                                                     <input name="username" type="text" class="form-control" id="username">
-                                                    <label for="username">Username</label>
+                                                    <label for="username">Email or username</label>
                                                     @error('username')
                                                     <div class="invalid-feedback" style="display: block;text-align: right;">{{ $message }}</div>
                                                     @enderror
