@@ -29,4 +29,12 @@ class LoginController extends Controller
         return view('dashboard.auth.login');
     }
 
+    public function logout() {
+        $guard = \auth()->guard('admin');
+        if($guard->check()) {
+            $guard->logout();
+            return redirect()->route('admin-login');
+        }
+    }
+
 }

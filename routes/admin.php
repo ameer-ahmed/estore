@@ -21,4 +21,5 @@ Route::group([
     Route::get('/', function () {
         return 'dashboard';
     })->name('admin-dashboard');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin-logout');
 });

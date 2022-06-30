@@ -10,5 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $fillable = ['username', 'email', 'name', 'password'];
+    protected $hidden = ['password', 'remember_token'];
+    public $timestamps = true;
 
 }
