@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\Auth\LoginController;
+use App\Http\Controllers\Dashboard\Home\HomeController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -27,9 +28,7 @@ Route::group([
         'namespace' => 'Dashboard',
         'middleware' => 'auth:admin'
     ], function () {
-        Route::get('/', function () {
-            return __('dashboard/home.welcome_msg');
-        })->name('admin-dashboard');
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin-logout');
+        Route::get('/', [HomeController::class, '_home'])->name('admin-dashboard');
     });
 });
