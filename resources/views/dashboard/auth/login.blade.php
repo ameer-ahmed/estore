@@ -20,8 +20,20 @@
     </head>
 
     <body class="bg-primary bg-pattern">
-        <div class="home-btn d-none d-sm-block">
+        <div class="home-btn d-none d-sm-block" style="width: 70%;margin: auto;position: sticky;">
             <a href="index.html"><i class="mdi mdi-home-variant h2 text-white"></i></a>
+            <div class="dropdown" style="float: right;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Languages <i class="mdi mdi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
         </div>
 
         <div class="account-pages my-5 pt-sm-5">
@@ -41,14 +53,17 @@
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="p-2">
-                                    <h5 class="mb-5 text-center">Sign in to continue to Xoric.</h5>
+                                    <h5 class="mb-5 text-center">{{__('dashboard/home.welcome_msg')}}</h5>
+                                    @if(session()->has('auth_error'))
+                                        <div class="alert alert-danger mb-0" role="alert">{{ session()->get('auth_error') }}</div>
+                                    @endif
                                     <form class="form-horizontal" action="{{ route('admin-login') }}" method="post" novalidate>
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group form-group-custom mb-4">
                                                     <input name="username" type="text" class="form-control" id="username">
-                                                    <label for="username">Username</label>
+                                                    <label for="username">Email or username</label>
                                                     @error('username')
                                                     <div class="invalid-feedback" style="display: block;text-align: right;">{{ $message }}</div>
                                                     @enderror
@@ -87,9 +102,11 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- end row -->
             </div>
         </div>
+
         <!-- end Account pages -->
 
         <!-- JAVASCRIPT -->
