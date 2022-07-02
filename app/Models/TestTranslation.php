@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TestTranslation extends Model
 {
+    protected $fillable = ['name', 'text'];
     public $timestamps = false;
 }

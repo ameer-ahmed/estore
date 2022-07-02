@@ -4,14 +4,12 @@ namespace App\Models;
 
 use App\Http\Traits\TranslatableHelper;
 use Astrotomic\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class Category extends Model
 {
     use Translatable, TranslatableHelper;
-
-    protected $fillable = ['is_active'];
-    public $translatedAttributes = ['name', 'text'];
+    protected $fillable = ['slug', 'is_active'];
+    public $translatedAttributes = ['name'];
     public $timestamps = true;
 }
