@@ -8,7 +8,7 @@
  * #############################################################################################
  *
  * It's not mentioned in their docs at all, actually, I don't know why!
- * It took me a few hours to activate the Arabic language :)
+ * It took me a few hours to make it support Arabic language :)
  *
  */
 
