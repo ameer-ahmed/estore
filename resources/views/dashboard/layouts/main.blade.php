@@ -31,5 +31,6 @@
 
 <!-- JAVASCRIPT -->
 @include('dashboard.layouts.tags.js')
+@yield('required_js')
 </body>
 </html>

@@ -34,4 +34,11 @@ class CategoriesController extends Controller
             ->route('admin-categories-create')
             ->with(['success' => 'Category was added successfully.']);
     }
+
+    public function _all() {
+        $categories = Category::paginate(2);
+
+//        return $categories[0]->getTranslation('name', 'ar');
+        return view('dashboard.categories.all', compact('categories'));
+    }
 }
