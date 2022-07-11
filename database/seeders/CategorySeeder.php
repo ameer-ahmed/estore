@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Dashboard\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -25,6 +24,7 @@ class CategorySeeder extends Seeder
                 ],
                 'slug' => 'electronics', // NOTE: Slug must be unique.
                 'is_active' => true,
+                'image_path' => 'electronics.png',
             ],
             [
                 'en' => [
@@ -35,6 +35,7 @@ class CategorySeeder extends Seeder
                 ],
                 'slug' => 'books',
                 'is_active' => true,
+                'image_path' => 'books.png',
             ],
             [
                 'en' => [
@@ -45,6 +46,7 @@ class CategorySeeder extends Seeder
                 ],
                 'slug' => 'furniture',
                 'is_active' => true,
+                'image_path' => 'furniture.png',
             ],
         ];
         foreach ($categories as $category) {
