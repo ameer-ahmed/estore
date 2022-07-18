@@ -35,25 +35,39 @@
                                         </button>
                                         {{ session()->get('success') }}
                                     </div>
+                                @elseif(session()->has('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        {{ session()->get('error') }}
+                                    </div>
                                 @endif
-                                <form action="{{ route('admin-categories-create') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('admin-categories-create') }}" method="post"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-custom mb-4">
                                                 <h5 class="font-size-14">Category name in English</h5>
-                                                <input name="name_en" type="text" placeholder="Ex: Mobiles, Tablets & Accessories" class="form-control">
+                                                <input name="name_en" type="text"
+                                                       placeholder="Ex: Mobiles, Tablets & Accessories"
+                                                       class="form-control" value="{{ old('name_en') }}">
                                                 @error('name_en')
-                                                <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                                <div class="invalid-feedback"
+                                                     style="display: block;">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-custom mb-4">
                                                 <h5 class="font-size-14">Category name in Arabic</h5>
-                                                <input name="name_ar" type="text" placeholder="Ex: هواتف، أجهزة التابلت وإكسسواراتها" class="form-control">
+                                                <input name="name_ar" type="text"
+                                                       placeholder="Ex: هواتف، أجهزة التابلت وإكسسواراتها"
+                                                       class="form-control" value="{{ old('name_ar') }}">
                                                 @error('name_ar')
-                                                <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                                <div class="invalid-feedback"
+                                                     style="display: block;">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -62,31 +76,50 @@
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-custom mb-4">
                                                 <h5 class="font-size-14">Slug</h5>
-                                                <input name="slug" type="text" placeholder="Ex: mobiles-tablets-accessories" class="form-control">
+                                                <input name="slug" type="text"
+                                                       placeholder="Ex: mobiles-tablets-accessories"
+                                                       class="form-control" value="{{ old('slug') }}">
                                                 @error('slug')
-                                                <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                                <div class="invalid-feedback"
+                                                     style="display: block;">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <h5 class="font-size-14">Category image</h5>
                                             <div class="custom-file">
-                                                <input name="image" type="file" class="custom-file-input" id="validationCustomFile">
-                                                <label class="custom-file-label" for="validationCustomFile">Choose file...</label>
+                                                <input name="image" type="file" class="custom-file-input"
+                                                       id="validationCustomFile">
+                                                <label class="custom-file-label" for="validationCustomFile">Choose
+                                                    file...</label>
                                                 @error('image')
-                                                <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                                <div class="invalid-feedback"
+                                                     style="display: block;">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-sm-2" style="display: table;">
-                                            <div class="custom-control custom-checkbox mb-2" style="display: table-cell;vertical-align: middle;text-align: center;">
-                                                <input name="is_active" type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                                                <label class="custom-control-label" for="customCheck1">Active</label>
+                                        <div class="col-sm-3">
+                                            <h5 class="font-size-14">Category Status</h5>
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-light active">
+                                                    <input type="radio" name="is_active" id="option1"
+                                                           value="1" {{ old('is_active') === '1' || old('is_active') === null ? 'checked' : '' }}>
+                                                    Active
+                                                </label>
+                                                <label class="btn btn-light">
+                                                    <input type="radio" name="is_active" id="option2"
+                                                           value="0" {{ old('is_active') === '0' &&  old('is_active') !== null ? 'checked' : '' }}>
+                                                    Inactive
+                                                </label>
                                             </div>
+                                            @error('is_active')
+                                            <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mt-4">
-                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Submit
+                                        </button>
                                     </div>
                                 </form>
                             </div>

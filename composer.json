@@ -30,7 +30,7 @@
         },
         "files": [
             "app/Http/Helpers/helper.php",
-            "app/Http/Helpers/UploadFile.php",
+            "app/Http/Helpers/Uploader.php",
             "app/Http/Helpers/consts.php"
         ]
     },

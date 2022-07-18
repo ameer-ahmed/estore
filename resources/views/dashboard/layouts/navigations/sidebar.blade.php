@@ -36,9 +36,9 @@
                         <span>Categories</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">All Categories</a></li>
-                        <li><a href="email-read.html">Add New Category</a></li>
-                        <li><a href="email-read.html">Disabled Categories</a></li>
+                        <li><a href="/admin/categories/">All Categories</a></li>
+                        <li><a href="/admin/categories/create">Add New Category</a></li>
+                        <li><a href="email-read.html">Inactive Categories</a></li>
                     </ul>
                 </li>
                 <li>
@@ -49,10 +49,10 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="email-inbox.html">Add New Product</a></li>
                         <li><a href="email-inbox.html">Pending Products</a></li>
-                        <li><a href="email-inbox.html">Search products</a></li>
+                        <li><a href="email-inbox.html">Search Products</a></li>
                         <li><a href="email-read.html">Recently Added Products</a></li>
                         <li><a href="email-read.html">Products by Category</a></li>
-                        <li><a href="email-read.html">E-store Products</a></li>
+                        <li><a href="email-read.html">e-store Products</a></li>
                     </ul>
                 </li>
                 <li class="menu-title">Sellers</li>

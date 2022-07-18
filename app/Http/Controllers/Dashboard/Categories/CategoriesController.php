@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\CategoriesRequest;
+use App\Http\Requests\Dashboard\Categories\AddCategoryRequest;
+use App\Http\Requests\Dashboard\Categories\EditCategoryRequest;
 use App\Models\Dashboard\Category;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -12,13 +14,12 @@ class CategoriesController extends Controller
         return view('dashboard.categories.create');
     }
 
-    public function create(CategoriesRequest $request) {
-        $isActive = isset($request->is_active) && $request->is_active === 'on';
-
+    public function create(AddCategoryRequest $request) {
+        $isActive = isset($request->is_active) && is_bool($request->is_active) ;
         // preparing image uploading
-        $newImageName = time() . '-' . $request->slug . '.' . $request->image->extension();
+        $newImageName = isset($request->image) ? time() . '-' . $request->slug . '.' . $request->image->extension() : '';
 //        $request->image->move(UPLOAD_CATEGORIES_IMGS_PATH, $newImageName);
-        $request->file('image')->storeAs(UPLOAD_CATEGORIES_IMGS_PATH, $newImageName);
+        $request->file('image')?->storeAs(UPLOAD_CATEGORIES_IMGS_PATH, $newImageName);
         $category = Category::create([
             'en' => [
                 'name' => $request->name_en,
@@ -30,15 +31,89 @@ class CategoriesController extends Controller
             'is_active' => $isActive,
             'image_path' => $newImageName,
         ]);
+        if($category) {
+            return redirect()
+                ->route('admin-categories-create')
+                ->with(['success' => 'Category was added successfully.']);
+        }
         return redirect()
             ->route('admin-categories-create')
-            ->with(['success' => 'Category was added successfully.']);
+            ->with(['error' => 'Something went wrong!']);
     }
 
     public function _all() {
-        $categories = Category::paginate(2);
-
-//        return $categories[0]->getTranslation('name', 'ar');
+        $categories = Category::orderBy('id', 'desc')->paginate(2);
         return view('dashboard.categories.all', compact('categories'));
+    }
+
+    public function _edit($id) {
+        $category = Category::where('id', $id)->first();
+        if($category !== null) {
+            session(['category_id' => $category->id]);
+            return view('dashboard.categories.edit', compact('id', 'category'));
+        }
+        return redirect()->route('admin-categories-all');
+    }
+
+    // EDIT CATEGORY METHODS
+
+    public function edit(EditCategoryRequest $request, $id, $operation = null) {
+        $category = Category::where('id', $id)->first();
+        if($category !== null) {
+            if($operation == 'update_category')
+                return $this->updateCategory($category, $request, $id);
+            elseif($operation == 'delete_image') {
+                return $this->deleteImage($category, $id);
+            }
+            elseif($operation == 'change_image') {
+                return $this->changeImage($category, $request, $id);
+            }
+            elseif($operation == 'toggle_activation') {
+                return $this->toggleActivation($category, $id);
+            }
+            else {
+                return redirect()->route('admin-categories-edit', $id);
+            }
+        }
+        return redirect()->route('admin-categories-all');
+    }
+
+    private function updateCategory($category, $request, $id) {
+        $category->translate('en')->name = $request->name_en;
+        $category->translate('ar')->name = $request->name_ar;
+        $category->slug = $request->slug;
+        $category->save();
+        return redirect()->route('admin-categories-edit', $id)->with(['success' => 'Category #' . $category->id . ' was updated successfully.']);
+    }
+
+    private function deleteImage($category, $id) {
+        if(!empty($category->image_path)) {
+            $imagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->image_path;
+            Storage::delete($imagePath);
+            $category->image_path = null;
+            $category->save();
+            return redirect()->route('admin-categories-edit', $id)->with(['image_delete_success' => 'Image was deleted successfully.']);
+        }
+        return redirect()->route('admin-categories-edit', $id)->with(['image_delete_error' => 'An error occurred.']);
+    }
+
+    private function changeImage($category, $request, $id) {
+        if($request->upload == 'change_image') {
+            if(!empty($category->image_path)) { // Deleting old image, firstly.
+                $oldImagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->image_path;
+                Storage::delete($oldImagePath);
+            }
+            $newImageName = time() . '-' . $category->slug . '.' . $request->image->extension();
+            $request->file('image')->storeAs(UPLOAD_CATEGORIES_IMGS_PATH, $newImageName);
+            $category->image_path =$newImageName;
+            $category->save();
+            return redirect()->route('admin-categories-edit', $id)->with(['image_delete_success' => 'Image was changed successfully.']);
+        }
+    }
+
+    private function toggleActivation($category, $id) {
+        $category->is_active = !$category->getRawOriginal('is_active');
+        $category->save();
+        return redirect()->route('admin-categories-edit', $id);
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace App\Http\Requests\Dashboard\Categories;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriesRequest extends FormRequest
+class AddCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,6 +28,7 @@ class CategoriesRequest extends FormRequest
             'name_ar' => 'required',
             'slug' => 'required|unique:categories',
             'image' => 'mimes:jpg,png,jpeg|max:5048',
+            'is_active' => 'required|boolean',
         ];
     }
 
@@ -37,9 +38,11 @@ class CategoriesRequest extends FormRequest
             'name_en.required' => 'Required field.',
             'name_ar.required' => 'Required field.',
             'slug.required' => 'Required field.',
+            'is_active.required' => 'Required field.',
             'slug.unique' => 'This slug is used before.',
             'image.mimes' => 'Supported extensions are jpg, jpeg and png.',
-            'image.max' => 'Max image size is 5 MB.'
+            'image.max' => 'Max image size is 5 MB.',
+            'is_active.boolean' => 'Irrelevant value.'
         ];
     }
 }
