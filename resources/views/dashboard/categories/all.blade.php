@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.main')
-@section('title', 'Admin Dashboard - Add New Category')
+@section('title', 'Admin Dashboard - All Categories')
 
 
 @section('content')
@@ -31,23 +31,25 @@
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Image</th>
-                                        <th>English Name</th>
-                                        <th>Arabic Name</th>
-                                        <th>Slug</th>
-                                        <th>Status</th>
+                                        <th class="text-center align-middle">#</th>
+                                        <th class="text-center align-middle">Image</th>
+                                        <th class="text-center align-middle">English Name</th>
+                                        <th class="text-center align-middle">Arabic Name</th>
+                                        <th class="text-center align-middle">Slug</th>
+                                        <th class="text-center align-middle">Status</th>
+                                        <th class="text-center align-middle">Modify</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($categories as $category)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td><img height="50px" src="{{ url(CATEGORIES_IMGS_ACCESS . $category->image_path) }}"></td>
-                                            <td>{{ $category->translate('en')->name }}</td>
-                                            <td>{{ $category->translate('ar')->name }}</td>
-                                            <td>{{ $category->slug }}</td>
-                                            <td>{{ $category->is_active }}</td>
+                                            <td class="text-center align-middle">{{ $category->id }}</td>
+                                            <td class="text-center align-middle"><img height="40px" src="{{ $category->image_path }}" alt=""></td>
+                                            <td class="text-center align-middle">{{ $category->translate('en')->name }}</td>
+                                            <td class="text-center align-middle">{{ $category->translate('ar')->name }}</td>
+                                            <td class="text-center align-middle"><span class="badge badge-soft-primary">{{ $category->slug }}</span></td>
+                                            <td class="text-center align-middle">{{ $category->is_active }}</td>
+                                            <td class="text-center align-middle"><a href="/admin/categories/edit/{{ $category->id }}"><button type="button" class="btn btn-outline-warning btn-rounded waves-effect waves-light">Edit</button></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

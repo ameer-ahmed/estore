@@ -2,7 +2,7 @@
 
 namespace App\Http\Helpers;
 
-class UploadFile
+class Uploader
 {
     public static function handle() {
 

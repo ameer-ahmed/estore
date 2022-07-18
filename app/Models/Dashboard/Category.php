@@ -20,4 +20,11 @@ class Category extends Model
             get: fn($value) => $value ? 'Active' : 'Inactive',
         );
     }
+
+    protected function imagePath(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => !empty($value) ? CATEGORIES_IMGS_ACCESS . $value : '',
+        );
+    }
 }
