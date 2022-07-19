@@ -63,57 +63,64 @@ class CategoriesController extends Controller
             if($operation == 'update_category')
                 return $this->updateCategory($category, $request, $id);
             elseif($operation == 'delete_image') {
-                return $this->deleteImage($category, $id);
+                return $this->deleteImage($category);
             }
             elseif($operation == 'change_image') {
-                return $this->changeImage($category, $request, $id);
+                return $this->changeImage($category, $request);
             }
             elseif($operation == 'toggle_activation') {
-                return $this->toggleActivation($category, $id);
+                return $this->toggleActivation($category);
             }
             else {
-                return redirect()->route('admin-categories-edit', $id);
+                return $this->backToEdit();
             }
         }
         return redirect()->route('admin-categories-all');
     }
 
-    private function updateCategory($category, $request, $id) {
-        $category->translate('en')->name = $request->name_en;
-        $category->translate('ar')->name = $request->name_ar;
-        $category->slug = $request->slug;
-        $category->save();
-        return redirect()->route('admin-categories-edit', $id)->with(['success' => 'Category #' . $category->id . ' was updated successfully.']);
+    private function updateCategory($category, $request) {
+        if(requestMethodIs('post')) {
+            $category->translate('en')->name = $request->name_en;
+            $category->translate('ar')->name = $request->name_ar;
+            $category->slug = $request->slug;
+            $category->save();
+            return redirect()->route('admin-categories-edit', session()->get('category_id'))->with(['success' => 'Category #' . $category->id . ' was updated successfully.']);
+        }
+        return $this->backToEdit();
     }
 
-    private function deleteImage($category, $id) {
+    private function deleteImage($category) {
         if(!empty($category->image_path)) {
-            $imagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->image_path;
+            $imagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->getRawOriginal('image_path');
             Storage::delete($imagePath);
             $category->image_path = null;
             $category->save();
-            return redirect()->route('admin-categories-edit', $id)->with(['image_delete_success' => 'Image was deleted successfully.']);
+            return $this->backToEdit()->with(['image_delete_success' => 'Image was deleted successfully.']);
         }
-        return redirect()->route('admin-categories-edit', $id)->with(['image_delete_error' => 'An error occurred.']);
+        return $this->backToEdit()->with(['image_delete_error' => 'An error occurred.']);
     }
 
-    private function changeImage($category, $request, $id) {
+    private function changeImage($category, $request) {
         if($request->upload == 'change_image') {
             if(!empty($category->image_path)) { // Deleting old image, firstly.
-                $oldImagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->image_path;
+                $oldImagePath = UPLOAD_CATEGORIES_IMGS_PATH . $category->getRawOriginal('image_path');
                 Storage::delete($oldImagePath);
             }
             $newImageName = time() . '-' . $category->slug . '.' . $request->image->extension();
             $request->file('image')->storeAs(UPLOAD_CATEGORIES_IMGS_PATH, $newImageName);
             $category->image_path =$newImageName;
             $category->save();
-            return redirect()->route('admin-categories-edit', $id)->with(['image_delete_success' => 'Image was changed successfully.']);
+            return $this->backToEdit()->with(['image_delete_success' => 'Image was changed successfully.']);
         }
     }
 
-    private function toggleActivation($category, $id) {
+    private function toggleActivation($category) {
         $category->is_active = !$category->getRawOriginal('is_active');
         $category->save();
-        return redirect()->route('admin-categories-edit', $id);
+        return $this->backToEdit();
+    }
+
+    private function backToEdit() {
+        return redirect()->route('admin-categories-edit', session()->get('category_id'));
     }
 }
