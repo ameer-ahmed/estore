@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('sellers', function (Blueprint $table) {
-            $table->dropColumn('country');
+            $table->string('postal_code')->change();
+            $table->renameColumn('account_status', 'status');
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('sellers', function (Blueprint $table) {
-            $table->string('country')->after('last_name');
+            $table->integer('postal_code')->change();
+            $table->renameColumn('status', 'account_status');
         });
     }
 };
