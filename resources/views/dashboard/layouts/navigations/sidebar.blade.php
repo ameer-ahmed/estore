@@ -87,9 +87,10 @@
                         <span>Shipping Methods</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Add Shipping Method</a></li>
-                        <li><a href="email-inbox.html">Inner Shipping</a></li>
-                        <li><a href="email-inbox.html">Outer Shipping</a></li>
+                        <li><a href="/admin/shipping/create">Add Shipping Method</a></li>
+                        @foreach($shippingMethods as $shippingMethod)
+                            <li><a href="/admin/shipping/{{ $shippingMethod->id }}">{{ $shippingMethod->translate(LaravelLocalization::getCurrentLocale())->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="menu-title">Settings</li>

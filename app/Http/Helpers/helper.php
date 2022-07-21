@@ -6,7 +6,7 @@ if(!function_exists('appDirection')) {
     }
 }
 
-if(!function_exists('requestMethod')) {
+if(!function_exists('requestMethodIs')) {
     function requestMethodIs (string $method) : bool {
         return request()->method() == strtoupper($method);
     }
