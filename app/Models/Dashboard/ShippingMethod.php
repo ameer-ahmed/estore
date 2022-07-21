@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Dashboard;
 
 use App\Http\Traits\TranslatableHelper;
 use Astrotomic\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class ShippingMethod extends Model
 {
     use Translatable, TranslatableHelper;
-
-    protected $fillable = ['is_active'];
-    public $translatedAttributes = ['name', 'text'];
+    protected $guarded = ['created_at', 'updated_at'];
+    public $translatedAttributes = ['name'];
     public $timestamps = true;
 }

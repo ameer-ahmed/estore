@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Categories\AddCategoryRequest;
-use App\Http\Requests\Dashboard\Categories\EditCategoryRequest;
+use App\Http\Requests\Dashboard\Categories\UpdateCategoryRequest;
 use App\Models\Dashboard\Category;
 use Illuminate\Support\Facades\Storage;
 
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
 
     // EDIT CATEGORY METHODS
 
-    public function edit(EditCategoryRequest $request, $id, $operation = null) {
+    public function edit(UpdateCategoryRequest $request, $id, $operation = null) {
         $category = Category::where('id', $id)->first();
         if($category !== null) {
             if($operation == 'update_category')
