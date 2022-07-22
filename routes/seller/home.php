@@ -3,11 +3,6 @@
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Home\HomeController;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-Route::get('/test', function () {
-   return auth('admin')->check();
-});
 
 Route::group([
     'middleware' => [
@@ -17,7 +12,7 @@ Route::group([
     ]
 ], function () {
     Route::group([
-        'middleware' => 'guest:admin'
+        'middleware' => 'guest:seller'
     ], function () {
         Route::get('/login', [LoginController::class, '_login'])->name('admin-login');
         Route::post('/login', [LoginController::class, 'login']);

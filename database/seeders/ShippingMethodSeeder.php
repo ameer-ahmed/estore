@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Dashboard\ShippingMethod;
+use App\Models\Admin\ShippingMethod;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

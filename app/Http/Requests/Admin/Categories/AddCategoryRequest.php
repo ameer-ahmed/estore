@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Categories;
+namespace App\Http\Requests\Admin\Categories;
 
 use Illuminate\Foundation\Http\FormRequest;
 

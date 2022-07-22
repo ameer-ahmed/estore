@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Dashboard;
+namespace App\Models\Admin;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
