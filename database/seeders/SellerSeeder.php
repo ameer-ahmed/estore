@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Seller;
+use App\Models\Seller\Seller;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +19,7 @@ class SellerSeeder extends Seeder
             'username' => 'estore',
             'email' => 'seller@estore.com',
             'password' => Hash::make('12345678'),
-            'first_name' => 'e-Store',
+            'name' => 'e-Store',
             'zone' => 13837, // Al Mansurah, Egypt
             'address1' => '14 Toriel Street',
             'phone1' => '+201000000001',

@@ -18,9 +18,16 @@ class Authenticate extends Middleware
             if ($request->is([
                 'admin',
                 'admin/*',
-                app()->getLocale().'/admin*'
-            ]))
+                app()->getLocale().'/admin*',
+            ])) {
                 return route('admin-login');
+            } elseif ($request->is([
+                'seller',
+                'seller/*',
+                app()->getLocale().'/seller*',
+            ])) {
+                return route('seller-login');
+            }
             return route('user-login');
         }
     }

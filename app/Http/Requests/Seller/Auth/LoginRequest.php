@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Seller\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -29,12 +29,10 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
+    public function messages() {
         return [
-            'username.required' => 'Username is required.',
-            'password.required' => 'Password is required.'
+            'username.required' => 'Username is required',
+            'password.required' => 'Password is required',
         ];
     }
-
 }
