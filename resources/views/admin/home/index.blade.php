@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('admin.layouts.main')
 @section('title', 'Admin Dashboard - Home')
 
 
@@ -18,7 +18,8 @@
                     <div class="col-md-4">
                         <div class="float-right d-none d-md-block">
                             <div class="dropdown">
-                                <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-light btn-rounded dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="mdi mdi-settings-outline mr-1"></i> Settings
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
@@ -49,7 +50,8 @@
                                         <p class="text-muted">Xoric Dashboard</p>
 
                                         <div class="mt-4">
-                                            <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                            <a href="#" class="btn btn-primary btn-sm">View more <i
+                                                        class="mdi mdi-arrow-right ml-1"></i></a>
                                         </div>
                                     </div>
 
@@ -70,16 +72,18 @@
                                         <h4>$ 13,425</h4>
                                     </div>
                                     <div dir="ltr" class="ml-2">
-                                        <input data-plugin="knob" data-width="56" data-height="56" data-linecap=round data-displayInput=false
+                                        <input data-plugin="knob" data-width="56" data-height="56" data-linecap=round
+                                               data-displayInput=false
                                                data-fgColor="#3051d3" value="56" data-skin="tron" data-angleOffset="56"
-                                               data-readOnly=true data-thickness=".17" />
+                                               data-readOnly=true data-thickness=".17"/>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="media">
                                     <div class="media-body">
                                         <p class="text-muted">Sale status</p>
-                                        <h5 class="mb-0"> + 12 % <span class="font-size-14 text-muted ml-1">From previous period</span></h5>
+                                        <h5 class="mb-0"> + 12 % <span class="font-size-14 text-muted ml-1">From previous period</span>
+                                        </h5>
                                     </div>
 
                                     <div class="align-self-end ml-2">
@@ -95,7 +99,9 @@
                             <div class="card-body">
                                 <form class="form-inline float-right">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control form-control-sm datepicker-here" data-range="true"  data-multiple-dates-separator=" - " data-language="en" placeholder="Select Date" />
+                                        <input type="text" class="form-control form-control-sm datepicker-here"
+                                               data-range="true" data-multiple-dates-separator=" - " data-language="en"
+                                               placeholder="Select Date"/>
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="far fa-calendar font-size-12"></i></span>
                                         </div>
@@ -175,13 +181,15 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div>
-                                                <p class="text-muted"><i class="mdi mdi-circle text-primary mr-1"></i> Facebook</p>
+                                                <p class="text-muted"><i class="mdi mdi-circle text-primary mr-1"></i>
+                                                    Facebook</p>
                                                 <h5>$ 1,625</h5>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div>
-                                                <p class="text-muted"><i class="mdi mdi-circle text-warning mr-1"></i> Twitter</p>
+                                                <p class="text-muted"><i class="mdi mdi-circle text-warning mr-1"></i>
+                                                    Twitter</p>
                                                 <h5>$ 1,504</h5>
                                             </div>
                                         </div>
@@ -236,13 +244,16 @@
                                             <td>$124</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="View">
                                                         <i class="mdi mdi-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="mdi mdi-trash-can"></i>
                                                     </button>
                                                 </div>
@@ -260,13 +271,16 @@
                                             <td>$112</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="View">
                                                         <i class="mdi mdi-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="mdi mdi-trash-can"></i>
                                                     </button>
                                                 </div>
@@ -284,13 +298,16 @@
                                             <td>$106</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="View">
                                                         <i class="mdi mdi-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="mdi mdi-trash-can"></i>
                                                     </button>
                                                 </div>
@@ -308,13 +325,16 @@
                                             <td>$115</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="View">
                                                         <i class="mdi mdi-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="mdi mdi-trash-can"></i>
                                                     </button>
                                                 </div>
@@ -332,13 +352,16 @@
                                             <td>$105</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="View">
                                                         <i class="mdi mdi-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                            data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="mdi mdi-trash-can"></i>
                                                     </button>
                                                 </div>
@@ -375,7 +398,7 @@
                             <div class="card-body">
                                 <h5 class="header-title mb-4">Revenue by Location</h5>
 
-                                <div id="usa-map"  style="height: 150px" class="mb-5"></div>
+                                <div id="usa-map" style="height: 150px" class="mb-5"></div>
 
                                 <div class="table-responsive">
                                     <table class="table table-centered">
@@ -385,9 +408,11 @@
                                             <td>$ 8,257</td>
                                             <td>
                                                 <div dir="ltr" class="ml-2">
-                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                           data-fgColor="#3051d3" value="56" data-skin="tron" data-angleOffset="36"
-                                                           data-readOnly=true data-thickness=".2" />
+                                                    <input data-plugin="knob" data-width="36" data-height="36"
+                                                           data-linecap=round data-displayInput=false
+                                                           data-fgColor="#3051d3" value="56" data-skin="tron"
+                                                           data-angleOffset="36"
+                                                           data-readOnly=true data-thickness=".2"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -396,9 +421,11 @@
                                             <td>$ 7,253</td>
                                             <td>
                                                 <div dir="ltr" class="ml-2">
-                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                           data-fgColor="#3051d3" value="42" data-skin="tron" data-angleOffset="36"
-                                                           data-readOnly=true data-thickness=".2" />
+                                                    <input data-plugin="knob" data-width="36" data-height="36"
+                                                           data-linecap=round data-displayInput=false
+                                                           data-fgColor="#3051d3" value="42" data-skin="tron"
+                                                           data-angleOffset="36"
+                                                           data-readOnly=true data-thickness=".2"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -406,7 +433,8 @@
                                     </table>
 
                                     <div class="text-center">
-                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm">View more <i
+                                                    class="mdi mdi-arrow-right ml-1"></i></a>
                                     </div>
                                 </div>
                             </div>

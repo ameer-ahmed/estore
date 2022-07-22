@@ -2,7 +2,7 @@
 <html lang="{{ LaravelLocalization::getCurrentLocale() }}">
 
 <head>
-    @include('dashboard.layouts.tags.head')
+    @include('admin.layouts.tags.head')
 </head>
 
 <body data-topbar="colored">
@@ -10,10 +10,10 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    @include('dashboard.layouts.navigations.topbar')
+    @include('admin.layouts.navigations.topbar')
 
     <!-- ========== Left Sidebar Start ========== -->
-    @include('dashboard.layouts.navigations.sidebar')
+    @include('admin.layouts.navigations.sidebar')
     <!-- Left Sidebar End -->
 
     <!-- ============================================================== -->
@@ -22,7 +22,7 @@
     <div class="main-content">
         @yield('content')
 
-        @include('dashboard.layouts.navigations.footer')
+        @include('admin.layouts.navigations.footer')
     </div>
     <!-- end main content-->
 
@@ -30,7 +30,7 @@
 <!-- END layout-wrapper -->
 
 <!-- JAVASCRIPT -->
-@include('dashboard.layouts.tags.js')
+@include('admin.layouts.tags.js')
 @yield('required_js')
 </body>
 </html>

@@ -26,7 +26,7 @@ class LoginController extends Controller
     }
 
     public function _login() {
-        return view('dashboard.auth.login');
+        return view('admin.auth.login');
     }
 
     public function logout() {

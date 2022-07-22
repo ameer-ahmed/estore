@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('admin.layouts.main')
 @section('title', 'Admin Dashboard - All Categories')
 
 
@@ -28,7 +28,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="header-title mb-4">All Categories</h5>
-                                <table id="datatable" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid" aria-describedby="datatable_info">
+                                <table id="datatable"
+                                       class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline"
+                                       style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid"
+                                       aria-describedby="datatable_info">
                                     <thead>
                                     <tr>
                                         <th class="text-center align-middle">#</th>
@@ -44,12 +47,22 @@
                                     @foreach($categories as $category)
                                         <tr>
                                             <td class="text-center align-middle">{{ $category->id }}</td>
-                                            <td class="text-center align-middle"><img height="40px" src="{{ $category->image_path }}" alt=""></td>
+                                            <td class="text-center align-middle"><img height="40px"
+                                                                                      src="{{ $category->image_path }}"
+                                                                                      alt=""></td>
                                             <td class="text-center align-middle">{{ $category->translate('en')->name }}</td>
                                             <td class="text-center align-middle">{{ $category->translate('ar')->name }}</td>
-                                            <td class="text-center align-middle"><span class="badge badge-soft-primary">{{ $category->slug }}</span></td>
+                                            <td class="text-center align-middle"><span
+                                                        class="badge badge-soft-primary">{{ $category->slug }}</span>
+                                            </td>
                                             <td class="text-center align-middle">{{ $category->is_active }}</td>
-                                            <td class="text-center align-middle"><a href="/admin/categories/edit/{{ $category->id }}"><button type="button" class="btn btn-outline-warning btn-rounded waves-effect waves-light">Edit</button></a></td>
+                                            <td class="text-center align-middle"><a
+                                                        href="/admin/categories/edit/{{ $category->id }}">
+                                                    <button type="button"
+                                                            class="btn btn-outline-warning btn-rounded waves-effect waves-light">
+                                                        Edit
+                                                    </button>
+                                                </a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

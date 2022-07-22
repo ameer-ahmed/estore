@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::get('/test', function () {
-   return 'it works!';
+   return auth('admin')->check();
 });
 
 Route::group([

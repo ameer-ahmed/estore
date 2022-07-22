@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ShippingMethodsController extends Controller
 {
     public function _create() {
-        return view('dashboard.shipping.create');
+        return view('admin.shipping.create');
     }
 
     public function create(AddShippingMethodRequest $request) {

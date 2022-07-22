@@ -39,15 +39,15 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->prefix(LaravelLocalization::setLocale().'/admin')
-                ->group(base_path('routes/dashboard/home.php'));
+                ->group(base_path('routes/admin/home.php'));
 
             Route::middleware('web')
                 ->prefix(LaravelLocalization::setLocale().'/admin/categories')
-                ->group(base_path('routes/dashboard/categories.php'));
+                ->group(base_path('routes/admin/categories.php'));
 
             Route::middleware('web')
                 ->prefix(LaravelLocalization::setLocale().'/admin/shipping')
-                ->group(base_path('routes/dashboard/shipping.php'));
+                ->group(base_path('routes/admin/shipping.php'));
         });
     }
 

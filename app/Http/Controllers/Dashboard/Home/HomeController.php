@@ -7,6 +7,6 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function _home() {
-        return view('dashboard.home.index');
+        return view('admin.home.index');
     }
 }
