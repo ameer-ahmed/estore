@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class CategoriesController extends Controller
 {
     public function _create() {
-        return view('dashboard.categories.create');
+        return view('admin.categories.create');
     }
 
     public function create(AddCategoryRequest $request) {
@@ -43,14 +43,14 @@ class CategoriesController extends Controller
 
     public function _all() {
         $categories = Category::orderBy('id', 'desc')->paginate(2);
-        return view('dashboard.categories.all', compact('categories'));
+        return view('admin.categories.all', compact('categories'));
     }
 
     public function _edit($id) {
         $category = Category::where('id', $id)->first();
         if($category !== null) {
             session(['category_id' => $category->id]);
-            return view('dashboard.categories.edit', compact('id', 'category'));
+            return view('admin.categories.edit', compact('id', 'category'));
         }
         return redirect()->route('admin-categories-all');
     }

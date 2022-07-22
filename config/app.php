@@ -1,6 +1,6 @@
 <?php
 
-use App\Providers\SharingServiceProvider;
+use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -195,7 +195,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        SharingServiceProvider::class,
+        ViewServiceProvider::class,
 
     ],
 

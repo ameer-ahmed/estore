@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('admin.layouts.main')
 @section('title', 'Admin Dashboard - Edit Category #'.$id)
 
 
@@ -43,7 +43,8 @@
                                         {{ session()->get('error') }}
                                     </div>
                                 @endif
-                                <form action="{{ route('admin-categories-edit', [$id, 'update_category']) }}" method="post">
+                                <form action="{{ route('admin-categories-edit', [$id, 'update_category']) }}"
+                                      method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -51,7 +52,8 @@
                                                 <h5 class="font-size-14">Category name in English</h5>
                                                 <input name="name_en" type="text"
                                                        placeholder="Ex: Mobiles, Tablets & Accessories"
-                                                       class="form-control" value="{{ old('name_en', $category->translate('en')->name) }}">
+                                                       class="form-control"
+                                                       value="{{ old('name_en', $category->translate('en')->name) }}">
                                                 @error('name_en')
                                                 <div class="invalid-feedback"
                                                      style="display: block;">{{ $message }}</div>
@@ -63,7 +65,8 @@
                                                 <h5 class="font-size-14">Category name in Arabic</h5>
                                                 <input name="name_ar" type="text"
                                                        placeholder="Ex: هواتف، أجهزة التابلت وإكسسواراتها"
-                                                       class="form-control" value="{{ old('name_ar', $category->translate('ar')->name) }}">
+                                                       class="form-control"
+                                                       value="{{ old('name_ar', $category->translate('ar')->name) }}">
                                                 @error('name_ar')
                                                 <div class="invalid-feedback"
                                                      style="display: block;">{{ $message }}</div>
@@ -86,7 +89,8 @@
                                         </div>
                                     </div>
                                     <div class="mt-4">
-                                        <button name="update_category" value="details" class="btn btn-primary waves-effect waves-light" type="submit">Submit
+                                        <button name="update_category" value="details"
+                                                class="btn btn-primary waves-effect waves-light" type="submit">Submit
                                         </button>
                                     </div>
                                 </form>
@@ -122,25 +126,34 @@
                                     </div>
                                     <div class="col-sm-9">
 
-                                        <form action="{{ route('admin-categories-edit', [$category->id, 'change_image']) }}" method="post" enctype="multipart/form-data">
+                                        <form action="{{ route('admin-categories-edit', [$category->id, 'change_image']) }}"
+                                              method="post" enctype="multipart/form-data">
                                             @if(empty($category->image_path))
-                                                <div class="invalid-feedback" style="display: block;font-weight: bold !important;">No image was picked before.</div>
+                                                <div class="invalid-feedback"
+                                                     style="display: block;font-weight: bold !important;">No image was
+                                                    picked before.
+                                                </div>
                                             @else
                                                 <div class="row">
                                                     <div class="col-sm-2">
-                                                        <img height="60px" src="{{ $category->image_path }}" />
+                                                        <img height="60px" src="{{ $category->image_path }}"/>
                                                     </div>
                                                     <div class="col-sm-2 align-self-center">
-                                                        <a class="btn btn-danger waves-effect waves-light" href="{{ route('admin-categories-edit', [$category->id, 'delete_image']) }}">
+                                                        <a class="btn btn-danger waves-effect waves-light"
+                                                           href="{{ route('admin-categories-edit', [$category->id, 'delete_image']) }}">
                                                             Delete
                                                         </a>
                                                     </div>
                                                 </div>
                                             @endif
                                             <div class="row">
-                                                <div class="col-sm-5"><hr></div>
+                                                <div class="col-sm-5">
+                                                    <hr>
+                                                </div>
                                                 <div class="col-sm-2 text-center">or</div>
-                                                <div class="col-sm-5"><hr></div>
+                                                <div class="col-sm-5">
+                                                    <hr>
+                                                </div>
                                             </div>
                                             @csrf
                                             <div class="custom-file">
@@ -154,10 +167,11 @@
                                                 @enderror
                                             </div>
                                             <div class="mt-4">
-                                                <button class="btn btn-primary waves-effect waves-light" type="submit" name="upload" value="change_image">Upload
+                                                <button class="btn btn-primary waves-effect waves-light" type="submit"
+                                                        name="upload" value="change_image">Upload
                                                 </button>
                                             </div>
-                                        <form>
+                                            <form>
                                     </div>
 
                                 </div>
@@ -167,17 +181,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h5 class="font-size-14">Activeness: <span style="color: {{ $category->is_active == 'Active' ? '#20724f' : '#f06543' }};font-weight: bold !important;">{{ $category->is_active }}</span></h5>
+                                        <h5 class="font-size-14">Activeness: <span
+                                                    style="color: {{ $category->is_active == 'Active' ? '#20724f' : '#f06543' }};font-weight: bold !important;">{{ $category->is_active }}</span>
+                                        </h5>
                                     </div>
                                     <div class="col-sm-9">
                                         @if($category->is_active == 'Active')
-                                            <a href="{{ route('admin-categories-edit', [$category->id, 'toggle_activation']) }}" class="btn btn-danger waves-effect waves-light">Inactivate</a>
+                                            <a href="{{ route('admin-categories-edit', [$category->id, 'toggle_activation']) }}"
+                                               class="btn btn-danger waves-effect waves-light">Inactivate</a>
                                             <div class="invalid-feedback"
-                                                 style="display: block;font-weight: bold !important;">Note: Inactivating a category will disable their products accordingly. No worries, you can activate it back. Nothing will be deleted.</div>
+                                                 style="display: block;font-weight: bold !important;">Note: Inactivating
+                                                a category will disable their products accordingly. No worries, you can
+                                                activate it back. Nothing will be deleted.
+                                            </div>
                                         @else
-                                            <a href="{{ route('admin-categories-edit', [$category->id, 'toggle_activation']) }}" class="btn btn-success waves-effect waves-light">Activate</a>
+                                            <a href="{{ route('admin-categories-edit', [$category->id, 'toggle_activation']) }}"
+                                               class="btn btn-success waves-effect waves-light">Activate</a>
                                             <div class="valid-feedback"
-                                                 style="display: block;font-weight: bold !important;">Note: Activating back a category will enable their products accordingly.</div>
+                                                 style="display: block;font-weight: bold !important;">Note: Activating
+                                                back a category will enable their products accordingly.
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
