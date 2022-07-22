@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\LoginRequest;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Admin\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
