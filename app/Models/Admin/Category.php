@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Dashboard;
+namespace App\Models\Admin;
 
 use App\Http\Traits\TranslatableHelper;
 use Astrotomic\Translatable\Translatable;

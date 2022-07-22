@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\Shipping;
+namespace App\Http\Controllers\Admin\Shipping;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\Shipping\AddShippingMethodRequest;
-use App\Models\Dashboard\ShippingMethod;
+use App\Http\Requests\Admin\Shipping\AddShippingMethodRequest;
+use App\Models\Admin\ShippingMethod;
 use Illuminate\Http\Request;
 
 class ShippingMethodsController extends Controller

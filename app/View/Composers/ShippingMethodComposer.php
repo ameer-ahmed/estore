@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use App\Models\Dashboard\ShippingMethod;
+use App\Models\Admin\ShippingMethod;
 use Illuminate\View\View;
 
 class ShippingMethodComposer

@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Dashboard\ShippingMethod;
+use App\Models\Admin\ShippingMethod;
 use App\View\Composers\ShippingMethodComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;

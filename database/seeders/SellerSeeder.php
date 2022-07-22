@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Dashboard\Seller;
+use App\Models\Admin\Seller;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

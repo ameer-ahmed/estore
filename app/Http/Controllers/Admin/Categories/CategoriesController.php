@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\Categories;
+namespace App\Http\Controllers\Admin\Categories;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\Categories\AddCategoryRequest;
-use App\Http\Requests\Dashboard\Categories\UpdateCategoryRequest;
-use App\Models\Dashboard\Category;
+use App\Http\Requests\Admin\Categories\AddCategoryRequest;
+use App\Http\Requests\Admin\Categories\UpdateCategoryRequest;
+use App\Models\Admin\Category;
 use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller

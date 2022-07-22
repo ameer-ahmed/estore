@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\Shipping\ShippingMethodsController;
+use App\Http\Controllers\Admin\Shipping\ShippingMethodsController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => [
