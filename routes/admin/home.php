@@ -25,7 +25,6 @@ Route::group([
 
 
     Route::group([
-        'namespace' => 'Dashboard',
         'middleware' => 'auth:admin'
     ], function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin-logout');
