@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Country;
-use App\Models\Zone;
+use App\Models\Mutual\Country;
+use App\Models\Mutual\Zone;
 use Illuminate\Database\Seeder;
 
 class CountryZoneSeeder extends Seeder
