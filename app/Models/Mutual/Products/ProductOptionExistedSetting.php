@@ -6,10 +6,11 @@ use App\Http\Traits\TranslatableHelper;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductOptionExistedSetting extends Model
 {
     use Translatable, TranslatableHelper;
-    protected $guarded = ['created_at', 'updated_at'];
-    public $translatedAttributes = ['description'];
-    public $timestamps = true;
+
+    protected $guarded = [];
+    public $timestamps = false;
+    public $translatedAttributed = ['name'];
 }

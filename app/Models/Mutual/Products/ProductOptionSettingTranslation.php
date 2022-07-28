@@ -4,8 +4,8 @@ namespace App\Models\Mutual\Products;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductTranslation extends Model
+class ProductOptionSettingTranslation extends Model
 {
-    protected $fillable = ['description', 'slug'];
+    protected $fillable = ['value'];
     public $timestamps = false;
 }
