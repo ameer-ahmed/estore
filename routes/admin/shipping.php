@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => [
     'localeSessionRedirect',
     'localizationRedirect',
-    'localeViewPath'
+    'localeViewPath',
+    'auth:admin'
 ]], function () {
     Route::get('/create', [ShippingMethodsController::class, '_create'])->name('admin-shipping-create');
     Route::post('/create', [ShippingMethodsController::class, 'create']);

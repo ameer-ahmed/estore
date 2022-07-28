@@ -9,7 +9,8 @@ Route::group([
     'middleware' => [
         'localeSessionRedirect',
         'localizationRedirect',
-        'localeViewPath'
+        'localeViewPath',
+        'auth:admin',
     ]
 ], function () {
     Route::get('/create', [CategoriesController::class, '_create']);

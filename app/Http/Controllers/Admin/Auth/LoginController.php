@@ -29,7 +29,7 @@ class LoginController extends Controller
     }
 
     public function logout() {
-        $guard = \auth()->guard('admin');
+        $guard = auth()->guard('admin');
         if($guard->check()) {
             $guard->logout();
             return redirect()->route('admin-login');

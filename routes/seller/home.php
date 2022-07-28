@@ -8,7 +8,7 @@ Route::group([
     'middleware' => [
         'localeSessionRedirect',
         'localizationRedirect',
-        'localeViewPath'
+        'localeViewPath',
     ]
 ], function () {
     Route::group(['middleware' => 'guest:seller'], function () {
