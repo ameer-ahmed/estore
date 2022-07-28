@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ShippingMethodsController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:admin');
+    }
+
     public function _create() {
         return view('admin.shipping.create');
     }

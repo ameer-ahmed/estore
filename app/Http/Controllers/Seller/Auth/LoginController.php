@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:seller')
+            ->only(['logout']);
+
+        $this->middleware('guest:seller')
+            ->only(['login', '_login']);
+    }
+
     public function _login() {
         return view('seller.auth.login');
     }

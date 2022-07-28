@@ -78,7 +78,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="custom-control custom-checkbox">
-                                                            <input name="remember_me" type="checkbox" class="custom-control-input" id="customControlInline">
+                                                            <input name="remember_me" type="checkbox" class="custom-control-input" id="customControlInline" checked>
                                                             <label class="custom-control-label" for="customControlInline">Remember me</label>
                                                         </div>
                                                     </div>

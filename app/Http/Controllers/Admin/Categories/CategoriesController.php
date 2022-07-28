@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:admin');
+    }
+
     public function _create() {
         return view('admin.categories.create');
     }
@@ -46,6 +50,8 @@ class CategoriesController extends Controller
         return view('admin.categories.all', compact('categories'));
     }
 
+    // EDIT CATEGORY METHODS
+
     public function _edit($id) {
         $category = Category::where('id', $id)->first();
         if($category !== null) {
@@ -54,8 +60,6 @@ class CategoriesController extends Controller
         }
         return redirect()->route('admin-categories-all');
     }
-
-    // EDIT CATEGORY METHODS
 
     public function edit(UpdateCategoryRequest $request, $id, $operation = null) {
         $category = Category::where('id', $id)->first();
