@@ -99,7 +99,7 @@
                     <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i>
                         Lock screen</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i>
+                    <a class="dropdown-item" href="{{ route('seller-logout') }}"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i>
                         Logout</a>
                 </div>
             </div>

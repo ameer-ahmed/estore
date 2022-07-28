@@ -29,29 +29,43 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
+        Route::middleware('api')
+            ->prefix('api')
+            ->group(base_path('routes/api.php'));
+
         $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+            Route::group(['middleware' => [
+                'localeSessionRedirect',
+                'localizationRedirect',
+                'localeViewPath',
+            ]], function () {
+                Route::middleware('web')
+                    ->group(base_path('routes/web.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/admin')
+                    ->group(base_path('routes/admin/home.php'));
 
-            Route::middleware('web')
-                ->prefix(LaravelLocalization::setLocale().'/admin')
-                ->group(base_path('routes/admin/home.php'));
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/admin')
+                    ->group(base_path('routes/admin/auth.php'));
 
-            Route::middleware('web')
-                ->prefix(LaravelLocalization::setLocale().'/admin/categories')
-                ->group(base_path('routes/admin/categories.php'));
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/admin/categories')
+                    ->group(base_path('routes/admin/categories.php'));
 
-            Route::middleware('web')
-                ->prefix(LaravelLocalization::setLocale().'/admin/shipping')
-                ->group(base_path('routes/admin/shipping.php'));
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/admin/shipping')
+                    ->group(base_path('routes/admin/shipping.php'));
 
-            Route::middleware('web')
-                ->prefix(LaravelLocalization::setLocale().'/seller')
-                ->group(base_path('routes/seller/home.php'));
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/seller')
+                    ->group(base_path('routes/seller/home.php'));
+
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/seller')
+                    ->group(base_path('routes/seller/auth.php'));
+            });
         });
     }
 

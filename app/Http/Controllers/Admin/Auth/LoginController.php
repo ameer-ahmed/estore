@@ -7,6 +7,14 @@ use App\Http\Requests\Admin\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:admin')
+            ->only(['logout']);
+
+        $this->middleware('guest:admin')
+            ->only(['login', '_login']);
+    }
+
     public function login(LoginRequest $request) {
         if($this->attempt($request)) {
             $request->session()->regenerate();
@@ -29,7 +37,7 @@ class LoginController extends Controller
     }
 
     public function logout() {
-        $guard = \auth()->guard('admin');
+        $guard = auth()->guard('admin');
         if($guard->check()) {
             $guard->logout();
             return redirect()->route('admin-login');
