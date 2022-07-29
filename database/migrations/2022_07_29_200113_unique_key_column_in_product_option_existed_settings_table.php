@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('product_option_existed_settings', function (Blueprint $table) {
-            $table->dropUnique('key');
+            $table->dropUnique('product_option_existed_settings_key_unique');
         });
     }
 };
