@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             CountryZoneSeeder::class,
             ShippingMethodSeeder::class,
+            ProductOptionExistedSettingSeeder::class,
         ]);
     }
 }
