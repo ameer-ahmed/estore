@@ -10,6 +10,7 @@ class ProductOptionSetting extends Model
 {
     use Translatable, TranslatableHelper;
     protected $guarded = [];
+    protected $translationForeignKey = 'setting_id';
     public $translatedAttributes = ['value'];
     public $timestamps = false;
 
