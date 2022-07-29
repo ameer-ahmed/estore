@@ -12,4 +12,8 @@ class ProductOptionSetting extends Model
     protected $guarded = [];
     public $translatedAttributes = ['value'];
     public $timestamps = false;
+
+    public function option() {
+        return $this->belongsTo(ProductOption::class);
+    }
 }
