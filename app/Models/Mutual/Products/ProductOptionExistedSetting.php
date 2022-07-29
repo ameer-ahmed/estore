@@ -12,5 +12,5 @@ class ProductOptionExistedSetting extends Model
 
     protected $guarded = [];
     public $timestamps = false;
-    public $translatedAttributed = ['name'];
+    public $translatedAttributes = ['name'];
 }
