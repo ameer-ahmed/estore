@@ -8,4 +8,8 @@ class ProductOptionImage extends Model
 {
     protected $guarded = [];
     public $timestamps = false;
+
+    public function option() {
+        return $this->belongsTo(ProductOption::class);
+    }
 }

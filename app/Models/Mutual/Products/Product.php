@@ -12,4 +12,8 @@ class Product extends Model
     protected $guarded = ['created_at', 'updated_at'];
     public $translatedAttributes = ['description'];
     public $timestamps = true;
+
+    public function options() {
+        return $this->hasMany(ProductOption::class);
+    }
 }
