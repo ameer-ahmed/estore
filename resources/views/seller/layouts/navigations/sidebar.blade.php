@@ -12,7 +12,7 @@
                 </li>
                 <li class="menu-title">Sell</li>
                 <li>
-                    <a href="/products/create" class="waves-effect">
+                    <a href="/seller/products/create" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="fas fa-plus"></i></div>
                         <span>Add New Product</span>
                     </a>
