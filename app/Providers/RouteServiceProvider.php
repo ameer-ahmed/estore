@@ -65,6 +65,10 @@ class RouteServiceProvider extends ServiceProvider
                 Route::middleware('web')
                     ->prefix(LaravelLocalization::setLocale().'/seller')
                     ->group(base_path('routes/seller/auth.php'));
+
+                Route::middleware('web')
+                    ->prefix(LaravelLocalization::setLocale().'/seller/products')
+                    ->group(base_path('routes/seller/products.php'));
             });
         });
     }
