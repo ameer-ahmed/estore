@@ -3,9 +3,20 @@
 namespace App\Http\Requests\Seller\Products;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Factory as ValidationFactory;
 
 class AddProductStepOneRequest extends FormRequest
 {
+    public function __construct(ValidationFactory $validationFactory)
+    {
+        $validationFactory->extend('unique_same_name', function ($attribute, $value) {
+            if(is_array($this->option) && array_count_values($this->option)[$value] > 1) {
+                return false;
+            }
+            return true;
+        });
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -29,7 +40,17 @@ class AddProductStepOneRequest extends FormRequest
             'init_price' => 'required|numeric|min:0',
             'category' => 'required|exists:categories,slug',
             'option_number.*' => 'sometimes|required|numeric|min:1',
-            'option.*' => 'sometimes|required|exists:product_option_existed_settings,key',
+            'option.*' => [
+                'sometimes',
+                'required',
+//                function ($attribute, $value, $fail) {
+//                    if(array_count_values($this->option)[$value] > 1) {
+//                        return $fail('Duplicated option.');
+//                    }
+//                },
+                'unique_same_name',
+                'exists:product_option_existed_settings,key',
+                ],
         ];
     }
 
