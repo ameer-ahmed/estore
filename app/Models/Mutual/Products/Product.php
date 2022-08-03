@@ -10,7 +10,7 @@ class Product extends Model
 {
     use Translatable, TranslatableHelper;
     protected $guarded = ['created_at', 'updated_at'];
-    public $translatedAttributes = ['description'];
+    public $translatedAttributes = ['initial_name', 'description', 'slug'];
     public $timestamps = true;
 
     public function options() {
