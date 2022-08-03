@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductTranslation extends Model
 {
-    protected $fillable = ['description', 'slug'];
+    protected $fillable = ['initial_name', 'description', 'slug'];
     public $timestamps = false;
 }
