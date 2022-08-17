@@ -38,19 +38,14 @@ class AddProductStepOneRequest extends FormRequest
             'init_name_en' => 'required',
             'init_name_ar' => 'required',
             'init_price' => 'required|numeric|min:0',
-            'category' => 'required|exists:categories,slug',
+            'category' => 'required|exists:categories,id',
             'option_number.*' => 'sometimes|required|numeric|min:1',
             'option.*' => [
                 'sometimes',
                 'required',
-//                function ($attribute, $value, $fail) {
-//                    if(array_count_values($this->option)[$value] > 1) {
-//                        return $fail('Duplicated option.');
-//                    }
-//                },
                 'unique_same_name',
-                'exists:product_option_existed_settings,key',
-                ],
+                'exists:product_option_existed_settings,id',
+            ],
         ];
     }
 
