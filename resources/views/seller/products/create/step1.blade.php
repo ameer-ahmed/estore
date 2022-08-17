@@ -92,7 +92,7 @@
                                                 <select name="category" class="form-control">
                                                     <option value="" selected="">Select a category</option>
                                                     @foreach($categories as $category)
-                                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('category')
@@ -123,7 +123,7 @@
                                                         <select name="option[]" class="form-control">
                                                             <option value="" selected="">Select an option</option>
                                                             @foreach($productExistedSettings as $setting)
-                                                                <option {{ old('option.' . $i - 1) == $setting->key ? "selected" : "" }} value="{{ $setting->key }}">{{ $setting->name }}</option>
+                                                                <option {{ old('option.' . $i - 1) == $setting->id ? "selected" : "" }} value="{{ $setting->id }}">{{ $setting->name }}</option>
                                                             @endforeach
                                                             </select>
                                                         @error('option.' . $i - 1)
@@ -181,7 +181,7 @@
                         '<select name="option[]" class="form-control">' +
                             '<option value="" selected="">Select an option</option>' +
                             @foreach($productExistedSettings as $setting)
-                                '<option value="{{ $setting->key }}">{{ $setting->name }}</option>' +
+                                '<option value="{{ $setting->id }}">{{ $setting->name }}</option>' +
                             @endforeach
                         '</select>' +
                         @error('option')
